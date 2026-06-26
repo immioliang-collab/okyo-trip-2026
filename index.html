@@ -564,8 +564,14 @@
     //  TRANSPORT MODAL
     // ======================================================
     function TransportModal({ day, onClose, apiKey }) {
-      const [origin, setOrigin]           = useState(day.hotel === "無（退房）" ? day.spots[0] : day.hotel);
-      const [destination, setDestination] = useState(day.spots[1] || day.spots[0] || "");
+      // 從當天步驟活動動態產生建議地點清單，加上飯店
+      const suggestions = [
+        day.hotel,
+        ...day.steps.map(s => s.activity).filter(Boolean)
+      ].filter((v, i, arr) => v && arr.indexOf(v) === i);
+
+      const [origin, setOrigin]           = useState(day.hotel === "無（退房）" ? (day.steps[0]?.activity || "") : day.hotel);
+      const [destination, setDestination] = useState(day.steps[1]?.activity || "");
       const [mode, setMode]               = useState("transit");
       const [result, setResult]           = useState(null);
       const [loading, setLoading]         = useState(false);
@@ -580,7 +586,7 @@
 
       const searchRoute = async () => {
         if (!apiKey) { setError("請先在頁面頂部輸入 Google Maps API Key"); return; }
-        if (!origin || !destination) { setError("請選擇出發地和目的地"); return; }
+        if (!origin || !destination) { setError("請輸入出發地和目的地"); return; }
         if (origin === destination) { setError("出發地與目的地不能相同"); return; }
         setLoading(true); setError(""); setResult(null);
         try {
@@ -617,6 +623,8 @@
         window.open(url, "_blank");
       };
 
+      const inputClass = "w-full border-2 border-gray-200 rounded-xl px-3 py-2 text-sm focus:border-blue-500 focus:outline-none transition-colors bg-white";
+
       return (
         <div className="fixed inset-0 bg-black bg-opacity-60 flex items-center justify-center z-50 p-4 fade-in" onClick={onClose}>
           <div className="bg-white rounded-2xl w-full max-w-md shadow-2xl overflow-hidden" onClick={e => e.stopPropagation()}>
@@ -628,20 +636,37 @@
               <button onClick={onClose} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-800 text-white text-xl font-bold transition-colors">✕</button>
             </div>
             <div className="p-5 space-y-4">
+              {/* 建議清單（隱藏 datalist） */}
+              <datalist id="spot-suggestions">
+                {suggestions.map((s, i) => <option key={i} value={s} />)}
+              </datalist>
               <div>
                 <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5 block">出發地</label>
-                <select className="w-full border-2 border-gray-200 rounded-xl px-3 py-2 text-sm focus:border-blue-500 focus:outline-none transition-colors bg-white"
-                  value={origin} onChange={e => setOrigin(e.target.value)}>
-                  <option value={day.hotel}>{day.hotel}（今日住宿）</option>
-                  {day.spots.filter(s => s !== day.hotel).map((s, i) => <option key={i} value={s}>{s}</option>)}
-                </select>
+                <input type="text" list="spot-suggestions" className={inputClass}
+                  value={origin} onChange={e => setOrigin(e.target.value)}
+                  placeholder="輸入或從建議選擇..." />
+                {/* 快速選鈕：飯店 */}
+                {day.hotel && day.hotel !== "無（退房）" && (
+                  <button onClick={() => setOrigin(day.hotel)}
+                    className="mt-1.5 text-xs text-blue-600 hover:text-blue-800 underline">
+                    🏨 快速填入今日住宿
+                  </button>
+                )}
               </div>
               <div>
                 <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5 block">目的地</label>
-                <select className="w-full border-2 border-gray-200 rounded-xl px-3 py-2 text-sm focus:border-blue-500 focus:outline-none transition-colors bg-white"
-                  value={destination} onChange={e => setDestination(e.target.value)}>
-                  {day.spots.map((s, i) => <option key={i} value={s}>{s}</option>)}
-                </select>
+                <input type="text" list="spot-suggestions" className={inputClass}
+                  value={destination} onChange={e => setDestination(e.target.value)}
+                  placeholder="輸入景點、飯店或車站名..." />
+                {/* 當天步驟快捷按鈕 */}
+                <div className="mt-2 flex flex-wrap gap-1.5">
+                  {day.steps.map((s, i) => (
+                    <button key={i} onClick={() => setDestination(s.activity)}
+                      className="text-xs bg-blue-50 text-blue-700 border border-blue-200 rounded-lg px-2 py-1 hover:bg-blue-100 transition-colors">
+                      {s.time} {s.activity.length > 12 ? s.activity.slice(0, 12) + "…" : s.activity}
+                    </button>
+                  ))}
+                </div>
               </div>
               <div>
                 <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5 block">交通方式</label>
