@@ -970,7 +970,7 @@
           const getRes = await fetch(`${apiBase}?ref=${GH_BRANCH}`, { headers });
           if (!getRes.ok) throw new Error(`ç¡æ³åå¾æªæ¡ (${getRes.status})ï¼è«ç¢ºèª Token æ¬é`);
           const fileInfo = await getRes.json();
-          const currentContent = atob(fileInfo.content.replace(/\n/g, ""));
+          const currentContent = decodeURIComponent(escape(atob(fileInfo.content.replace(/\n/g, ""))));
 
           // 2. æ¿æ DEFAULT_DATA åå¡
           const newDataStr = `const DEFAULT_DATA = ${JSON.stringify(data, null, 6)};`;
