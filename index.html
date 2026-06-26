@@ -694,11 +694,17 @@
 
       const editField = (field, val) => onUpdate(day.id, field, val);
 
+      const sortByTime = (steps) => [...steps].sort((a, b) => {
+        const toMin = t => { const [h, m] = (t || "00:00").split(":").map(Number); return h * 60 + (m || 0); };
+        return toMin(a.time) - toMin(b.time);
+      });
+
       const updateStep = (i, key, val) => {
         const next = day.steps.map((s, idx) => idx === i ? { ...s, [key]: val } : s);
-        onUpdate(day.id, "steps", next);
+        // 修改時間時即時重新排序
+        onUpdate(day.id, "steps", key === "time" ? sortByTime(next) : next);
       };
-      const addStep = () => onUpdate(day.id, "steps", [...day.steps, { time: "00:00", activity: "新活動" }]);
+      const addStep = () => onUpdate(day.id, "steps", sortByTime([...day.steps, { time: "00:00", activity: "新活動" }]));
       const delStep = (i) => onUpdate(day.id, "steps", day.steps.filter((_, idx) => idx !== i));
 
       const updateReminder = (i, val) => onUpdate(day.id, "reminders", day.reminders.map((r, idx) => idx === i ? val : r));
