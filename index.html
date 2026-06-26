@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>🇯🇵 2026 東京親子旅遊</title>
+  <title>ð¯ðµ 2026 æ±äº¬è¦ªå­æé</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
   <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
@@ -33,195 +33,486 @@
     // ======================================================
     // __DATA_START__
     const DEFAULT_DATA = {
-      tripInfo: {
-        title: "🇯🇵 2026 東京親子旅遊",
-        totalDays: 10,
-        passengers: "4人（2大2小）",
-        dates: "7/2 – 7/11"
+      "tripInfo": {
+            "title": "🇯🇵 2026 東京親子旅遊",
+            "totalDays": 10,
+            "passengers": "4人（2大2小）",
+            "dates": "7/2 – 7/11"
       },
-      segments: [
-        { id: "s1", name: "浦安期",    dates: "7/2–7/5", hotel: "東京灣舒適飯店",                  colorKey: "blue"   },
-        { id: "s2", name: "高田馬場期", dates: "7/5–7/9", hotel: "相鐵 Grand Fresa 高田馬場",       colorKey: "purple" },
-        { id: "s3", name: "五反田期",   dates: "7/9–7/11", hotel: "OMO5 東京五反田 by 星野集團",    colorKey: "green"  }
+      "segments": [
+            {
+                  "id": "s1",
+                  "name": "浦安期",
+                  "dates": "7/2–7/5",
+                  "hotel": "東京灣舒適飯店",
+                  "colorKey": "blue"
+            },
+            {
+                  "id": "s2",
+                  "name": "高田馬場期",
+                  "dates": "7/5–7/9",
+                  "hotel": "相鐵 Grand Fresa 高田馬場",
+                  "colorKey": "purple"
+            },
+            {
+                  "id": "s3",
+                  "name": "五反田期",
+                  "dates": "7/9–7/11",
+                  "hotel": "OMO5 東京五反田 by 星野集團",
+                  "colorKey": "green"
+            }
       ],
-      days: [
-        {
-          id: 1, segment: "s1", special: false,
-          dayNum: "DAY1", date: "7/2", weekday: "四",
-          theme: "✈️ 抵達東京",
-          hotel: "東京灣舒適飯店",
-          transport: "已訂機場接送（成田→浦安）",
-          steps: [
-            { time: "17:15", activity: "成田機場抵達" },
-            { time: "17:30", activity: "接送前往浦安" },
-            { time: "20:00", activity: "抵達飯店、辦理入住" },
-            { time: "20:30", activity: "休息" }
-          ],
-          reminders: ["明天7:30需出門，早點休息"],
-          spots: ["成田機場", "東京灣舒適飯店"]
-        },
-        {
-          id: 2, segment: "s1", special: false,
-          dayNum: "DAY2", date: "7/3", weekday: "五",
-          theme: "🎡 東京迪士尼樂園",
-          hotel: "東京灣舒適飯店",
-          transport: "步行至樂園（15分鐘）",
-          steps: [
-            { time: "07:30", activity: "排隊入場" },
-            { time: "08:00", activity: "衝美女與野獸，立刻購買DPA" },
-            { time: "09:00", activity: "彼得潘 / 大雷飛車" },
-            { time: "12:00", activity: "午餐（App訂位）" },
-            { time: "14:00", activity: "星際旅行 / 怪獸電力公司 / 幽靈公館" },
-            { time: "19:00", activity: "夜間遊行" }
-          ],
-          reminders: ["DPA每人每次1,500–2,500日圓，60分鐘後才能買第二張"],
-          spots: ["東京灣舒適飯店", "東京迪士尼樂園"]
-        },
-        {
-          id: 3, segment: "s1", special: true,
-          dayNum: "DAY3", date: "7/4", weekday: "六",
-          theme: "🌊 東京迪士尼海洋",
-          hotel: "東京灣舒適飯店",
-          transport: "飯店接駁車（06:30起床）",
-          steps: [
-            { time: "06:30", activity: "起床" },
-            { time: "07:00", activity: "搭飯店接駁車" },
-            { time: "07:15", activity: "抵達排隊" },
-            { time: "08:00", activity: "開園直奔夢幻泉鄉" },
-            { time: "08:30", activity: "冰雪奇緣排隊 or 買DPA，地心探險DPA" },
-            { time: "12:00", activity: "午餐" },
-            { time: "14:00", activity: "印第安納瓊斯 / 翱翔奇航 / 玩具總動員" },
-            { time: "20:00", activity: "晚上打包行李" }
-          ],
-          reminders: [
-            "夢幻泉鄉距入口步行20-30分鐘，開園要衝！",
-            "Fantasy Springs平均等2.5小時"
-          ],
-          spots: ["東京灣舒適飯店", "東京迪士尼海洋"]
-        },
-        {
-          id: 4, segment: "s2", special: false,
-          dayNum: "DAY4", date: "7/5", weekday: "日",
-          theme: "🏨 搬至高田馬場 + 池袋",
-          hotel: "相鐵 Grand Fresa 高田馬場（15:00 check in）",
-          transport: "東西線→山手線（約1小時）",
-          steps: [
-            { time: "11:00", activity: "退房" },
-            { time: "11:30", activity: "前往高田馬場寄放行李" },
-            { time: "12:00", activity: "池袋陽光城逛街" },
-            { time: "14:00", activity: "陽光水族館（屋上）" },
-            { time: "17:00", activity: "池袋東口晚餐 + 藥妝" }
-          ],
-          reminders: ["高田馬場搭山手線2站即達池袋（5分鐘）"],
-          spots: ["東京灣舒適飯店", "高田馬場站", "池袋陽光城", "陽光水族館"]
-        },
-        {
-          id: 5, segment: "s2", special: false,
-          dayNum: "DAY5", date: "7/6", weekday: "一",
-          theme: "⚡ 哈利波特魔法日",
-          hotel: "相鐵 Grand Fresa 高田馬場",
-          transport: "山手線→池袋→西武池袋線→豐島園（約25分）",
-          steps: [
-            { time: "09:00", activity: "出發前往哈利波特影城" },
-            { time: "09:30", activity: "哈利波特影城入場（已訂票）" },
-            { time: "13:30", activity: "結束，前往池袋西口" },
-            { time: "14:00", activity: "池袋西口午餐" },
-            { time: "15:30", activity: "LaLaport / PARCO 逛街" }
-          ],
-          reminders: ["已附JPY 500餐飲券×4張，可在園內使用"],
-          spots: ["相鐵 Grand Fresa 高田馬場", "哈利波特影城", "豐島園站", "池袋"]
-        },
-        {
-          id: 6, segment: "s2", special: false,
-          dayNum: "DAY6", date: "7/7", weekday: "二",
-          theme: "🎌 動漫巡禮日",
-          hotel: "相鐵 Grand Fresa 高田馬場",
-          transport: "中央線→中野（8分），中野→池袋（15分）",
-          steps: [
-            { time: "10:00", activity: "高田馬場→中野百老匯 + Mandarake" },
-            { time: "13:00", activity: "午餐" },
-            { time: "14:00", activity: "中野→池袋" },
-            { time: "14:30", activity: "安利美特池袋旗艦店（9層）" },
-            { time: "18:00", activity: "池袋燒肉晚餐" }
-          ],
-          reminders: ["中野百老匯2-3小時，安利美特建議預留2小時以上"],
-          spots: ["相鐵 Grand Fresa 高田馬場", "中野百老匯", "Mandarake中野", "安利美特池袋"]
-        },
-        {
-          id: 7, segment: "s2", special: false,
-          dayNum: "DAY7", date: "7/8", weekday: "三",
-          theme: "⛩️ 淺草 + 晴空塔",
-          hotel: "相鐵 Grand Fresa 高田馬場",
-          transport: "山手線→上野→銀座線→淺草（約35分）",
-          steps: [
-            { time: "09:00", activity: "出發" },
-            { time: "09:30", activity: "淺草寺 + 仲見世通" },
-            { time: "11:30", activity: "步行前往晴空塔" },
-            { time: "12:00", activity: "晴空塔展望台" },
-            { time: "13:00", activity: "Solamachi午餐" },
-            { time: "15:00", activity: "下午自由逛" },
-            { time: "17:00", activity: "返回高田馬場" }
-          ],
-          reminders: ["晴空塔建議提前訂票"],
-          spots: ["相鐵 Grand Fresa 高田馬場", "淺草寺", "仲見世通", "東京晴空塔"]
-        },
-        {
-          id: 8, segment: "s3", special: false,
-          dayNum: "DAY8", date: "7/9", weekday: "四",
-          theme: "👗 原宿 + 澀谷 → 搬五反田",
-          hotel: "OMO5 東京五反田 by 星野集團",
-          transport: "山手線→原宿（10分），澀谷→五反田（山手線2站）",
-          steps: [
-            { time: "09:00", activity: "退房、寄放行李" },
-            { time: "09:30", activity: "明治神宮" },
-            { time: "10:30", activity: "竹下通" },
-            { time: "12:00", activity: "表參道午餐" },
-            { time: "14:00", activity: "澀谷 Scramble / 109 / Hikarie" },
-            { time: "17:00", activity: "前往五反田OMO5 check in" },
-            { time: "18:30", activity: "晚餐" }
-          ],
-          reminders: ["今天搬飯店，行李早上寄放，傍晚check in"],
-          spots: ["相鐵 Grand Fresa 高田馬場", "明治神宮", "竹下通", "澀谷 Scramble Square", "OMO5 東京五反田"]
-        },
-        {
-          id: 9, segment: "s3", special: false,
-          dayNum: "DAY9", date: "7/10", weekday: "五",
-          theme: "✨ teamLab + 台場",
-          hotel: "OMO5 東京五反田 by 星野集團",
-          transport: "都營淺草線→大門→步行（約20分）",
-          steps: [
-            { time: "10:30", activity: "teamLab Borderless入場（已訂票）" },
-            { time: "13:30", activity: "結束，前往台場" },
-            { time: "14:00", activity: "DiverCity / Aqua City / 海邊散步" },
-            { time: "17:30", activity: "返回五反田" },
-            { time: "19:00", activity: "最後採買 + 行李整理" }
-          ],
-          reminders: [
-            "teamLab 訂單 JCS528913，10:30入場",
-            "台場 DiverCity 有獨角獸鋼彈立像"
-          ],
-          spots: ["OMO5 東京五反田", "teamLab Borderless", "台場 DiverCity", "Aqua City台場"]
-        },
-        {
-          id: 10, segment: "s3", special: false,
-          dayNum: "DAY10", date: "7/11", weekday: "六",
-          theme: "✈️ 回台灣",
-          hotel: "無（退房）",
-          transport: "都營淺草線→羽田空港第三ターミナル（直達約25分）",
-          steps: [
-            { time: "06:30", activity: "起床" },
-            { time: "07:45", activity: "退房" },
-            { time: "08:00", activity: "搭都營淺草線前往羽田" },
-            { time: "08:30", activity: "抵達羽田T3，辦理登機" },
-            { time: "10:50", activity: "BR189 起飛" },
-            { time: "13:30", activity: "抵達台灣松山機場" }
-          ],
-          reminders: ["⚠️ 長榮BR189從羽田HND T3出發，不是成田！務必確認"],
-          spots: ["OMO5 東京五反田", "羽田空港第三ターミナル", "台灣松山機場"]
-        }
+      "days": [
+            {
+                  "id": 1,
+                  "segment": "s1",
+                  "special": false,
+                  "dayNum": "DAY1",
+                  "date": "7/2",
+                  "weekday": "四",
+                  "theme": "✈️ 抵達東京",
+                  "hotel": "東京灣舒適飯店",
+                  "transport": "已訂機場接送（成田→浦安）",
+                  "steps": [
+                        {
+                              "time": "17:15",
+                              "activity": "成田機場抵達"
+                        },
+                        {
+                              "time": "17:30",
+                              "activity": "接送前往浦安"
+                        },
+                        {
+                              "time": "20:00",
+                              "activity": "抵達飯店、辦理入住"
+                        },
+                        {
+                              "time": "20:30",
+                              "activity": "休息"
+                        }
+                  ],
+                  "reminders": [
+                        "明天7:30需出門，早點休息"
+                  ],
+                  "spots": [
+                        "成田機場",
+                        "東京灣舒適飯店"
+                  ]
+            },
+            {
+                  "id": 2,
+                  "segment": "s1",
+                  "special": false,
+                  "dayNum": "DAY2",
+                  "date": "7/3",
+                  "weekday": "五",
+                  "theme": "🎡 東京迪士尼樂園",
+                  "hotel": "東京灣舒適飯店",
+                  "transport": "步行至樂園（15分鐘）",
+                  "steps": [
+                        {
+                              "time": "07:30",
+                              "activity": "排隊入場"
+                        },
+                        {
+                              "time": "08:00",
+                              "activity": "衝美女與野獸，立刻購買DPA"
+                        },
+                        {
+                              "time": "09:00",
+                              "activity": "彼得潘 / 大雷飛車"
+                        },
+                        {
+                              "time": "12:00",
+                              "activity": "午餐（App訂位）"
+                        },
+                        {
+                              "time": "14:00",
+                              "activity": "星際旅行 / 怪獸電力公司 / 幽靈公館"
+                        },
+                        {
+                              "time": "19:00",
+                              "activity": "夜間遊行"
+                        }
+                  ],
+                  "reminders": [
+                        "DPA每人每次1,500–2,500日圓，60分鐘後才能買第二張"
+                  ],
+                  "spots": [
+                        "東京灣舒適飯店",
+                        "東京迪士尼樂園"
+                  ]
+            },
+            {
+                  "id": 3,
+                  "segment": "s1",
+                  "special": true,
+                  "dayNum": "DAY3",
+                  "date": "7/4",
+                  "weekday": "六",
+                  "theme": "🌊 東京迪士尼海洋",
+                  "hotel": "東京灣舒適飯店",
+                  "transport": "飯店接駁車（06:30起床）",
+                  "steps": [
+                        {
+                              "time": "06:30",
+                              "activity": "起床"
+                        },
+                        {
+                              "time": "07:00",
+                              "activity": "搭飯店接駁車"
+                        },
+                        {
+                              "time": "07:15",
+                              "activity": "抵達排隊"
+                        },
+                        {
+                              "time": "08:00",
+                              "activity": "開園直奔夢幻泉鄉"
+                        },
+                        {
+                              "time": "08:30",
+                              "activity": "冰雪奇緣排隊 or 買DPA，地心探險DPA"
+                        },
+                        {
+                              "time": "12:00",
+                              "activity": "午餐"
+                        },
+                        {
+                              "time": "14:00",
+                              "activity": "印第安納瓊斯 / 翱翔奇航 / 玩具總動員"
+                        },
+                        {
+                              "time": "20:00",
+                              "activity": "晚上打包行李"
+                        }
+                  ],
+                  "reminders": [
+                        "夢幻泉鄉距入口步行20-30分鐘，開園要衝！",
+                        "Fantasy Springs平均等2.5小時"
+                  ],
+                  "spots": [
+                        "東京灣舒適飯店",
+                        "東京迪士尼海洋"
+                  ]
+            },
+            {
+                  "id": 4,
+                  "segment": "s2",
+                  "special": false,
+                  "dayNum": "DAY4",
+                  "date": "7/5",
+                  "weekday": "日",
+                  "theme": "🏨 搬至高田馬場 + 池袋",
+                  "hotel": "相鐵 Grand Fresa 高田馬場（15:00 check in）",
+                  "transport": "東西線→山手線（約1小時）",
+                  "steps": [
+                        {
+                              "time": "11:00",
+                              "activity": "退房"
+                        },
+                        {
+                              "time": "11:30",
+                              "activity": "前往高田馬場寄放行李"
+                        },
+                        {
+                              "time": "12:00",
+                              "activity": "池袋陽光城逛街"
+                        },
+                        {
+                              "time": "14:00",
+                              "activity": "陽光水族館（屋上）"
+                        },
+                        {
+                              "time": "17:00",
+                              "activity": "池袋東口晚餐 + 藥妝"
+                        }
+                  ],
+                  "reminders": [
+                        "高田馬場搭山手線2站即達池袋（5分鐘）"
+                  ],
+                  "spots": [
+                        "東京灣舒適飯店",
+                        "高田馬場站",
+                        "池袋陽光城",
+                        "陽光水族館"
+                  ]
+            },
+            {
+                  "id": 5,
+                  "segment": "s2",
+                  "special": false,
+                  "dayNum": "DAY5",
+                  "date": "7/6",
+                  "weekday": "一",
+                  "theme": "⚡ 哈利波特魔法日",
+                  "hotel": "相鐵 Grand Fresa 高田馬場",
+                  "transport": "山手線→池袋→西武池袋線→豐島園（約25分）",
+                  "steps": [
+                        {
+                              "time": "09:00",
+                              "activity": "出發前往哈利波特影城"
+                        },
+                        {
+                              "time": "09:30",
+                              "activity": "哈利波特影城入場（已訂票）"
+                        },
+                        {
+                              "time": "13:30",
+                              "activity": "結束，前往池袋西口"
+                        },
+                        {
+                              "time": "14:00",
+                              "activity": "池袋西口午餐"
+                        },
+                        {
+                              "time": "15:30",
+                              "activity": "LaLaport / PARCO 逛街"
+                        }
+                  ],
+                  "reminders": [
+                        "已附JPY 500餐飲券×4張，可在園內使用"
+                  ],
+                  "spots": [
+                        "相鐵 Grand Fresa 高田馬場",
+                        "哈利波特影城",
+                        "豐島園站",
+                        "池袋"
+                  ]
+            },
+            {
+                  "id": 6,
+                  "segment": "s2",
+                  "special": false,
+                  "dayNum": "DAY6",
+                  "date": "7/7",
+                  "weekday": "二",
+                  "theme": "🎌 動漫巡禮日",
+                  "hotel": "相鐵 Grand Fresa 高田馬場",
+                  "transport": "中央線→中野（8分），中野→池袋（15分）",
+                  "steps": [
+                        {
+                              "time": "10:00",
+                              "activity": "高田馬場→中野百老匯 + Mandarake"
+                        },
+                        {
+                              "time": "13:00",
+                              "activity": "午餐"
+                        },
+                        {
+                              "time": "14:00",
+                              "activity": "中野→池袋"
+                        },
+                        {
+                              "time": "14:30",
+                              "activity": "安利美特池袋旗艦店（9層）"
+                        },
+                        {
+                              "time": "18:00",
+                              "activity": "池袋燒肉晚餐"
+                        }
+                  ],
+                  "reminders": [
+                        "中野百老匯2-3小時，安利美特建議預留2小時以上"
+                  ],
+                  "spots": [
+                        "相鐵 Grand Fresa 高田馬場",
+                        "中野百老匯",
+                        "Mandarake中野",
+                        "安利美特池袋"
+                  ]
+            },
+            {
+                  "id": 7,
+                  "segment": "s2",
+                  "special": false,
+                  "dayNum": "DAY7",
+                  "date": "7/8",
+                  "weekday": "三",
+                  "theme": "⛩️ 淺草 + 晴空塔",
+                  "hotel": "相鐵 Grand Fresa 高田馬場",
+                  "transport": "山手線→上野→銀座線→淺草（約35分）",
+                  "steps": [
+                        {
+                              "time": "09:00",
+                              "activity": "出發"
+                        },
+                        {
+                              "time": "09:30",
+                              "activity": "淺草寺 + 仲見世通"
+                        },
+                        {
+                              "time": "11:30",
+                              "activity": "步行前往晴空塔"
+                        },
+                        {
+                              "time": "12:00",
+                              "activity": "晴空塔展望台"
+                        },
+                        {
+                              "time": "13:00",
+                              "activity": "Solamachi午餐"
+                        },
+                        {
+                              "time": "15:00",
+                              "activity": "下午自由逛"
+                        },
+                        {
+                              "time": "17:00",
+                              "activity": "返回高田馬場"
+                        }
+                  ],
+                  "reminders": [
+                        "晴空塔建議提前訂票"
+                  ],
+                  "spots": [
+                        "相鐵 Grand Fresa 高田馬場",
+                        "淺草寺",
+                        "仲見世通",
+                        "東京晴空塔"
+                  ]
+            },
+            {
+                  "id": 8,
+                  "segment": "s3",
+                  "special": false,
+                  "dayNum": "DAY8",
+                  "date": "7/9",
+                  "weekday": "四",
+                  "theme": "👗 原宿 + 澀谷 → 搬五反田",
+                  "hotel": "OMO5 東京五反田 by 星野集團",
+                  "transport": "山手線→原宿（10分），澀谷→五反田（山手線2站）",
+                  "steps": [
+                        {
+                              "time": "09:00",
+                              "activity": "退房、寄放行李"
+                        },
+                        {
+                              "time": "09:30",
+                              "activity": "明治神宮"
+                        },
+                        {
+                              "time": "10:30",
+                              "activity": "竹下通"
+                        },
+                        {
+                              "time": "12:00",
+                              "activity": "表參道午餐"
+                        },
+                        {
+                              "time": "14:00",
+                              "activity": "澀谷 Scramble / 109 / Hikarie"
+                        },
+                        {
+                              "time": "17:00",
+                              "activity": "前往五反田OMO5 check in"
+                        },
+                        {
+                              "time": "18:30",
+                              "activity": "晚餐"
+                        }
+                  ],
+                  "reminders": [
+                        "今天搬飯店，行李早上寄放，傍晚check in"
+                  ],
+                  "spots": [
+                        "相鐵 Grand Fresa 高田馬場",
+                        "明治神宮",
+                        "竹下通",
+                        "澀谷 Scramble Square",
+                        "OMO5 東京五反田"
+                  ]
+            },
+            {
+                  "id": 9,
+                  "segment": "s3",
+                  "special": false,
+                  "dayNum": "DAY9",
+                  "date": "7/10",
+                  "weekday": "五",
+                  "theme": "✨ teamLab + 台場",
+                  "hotel": "OMO5 東京五反田 by 星野集團",
+                  "transport": "都營淺草線→大門→步行（約20分）",
+                  "steps": [
+                        {
+                              "time": "10:30",
+                              "activity": "teamLab Borderless入場（已訂票）"
+                        },
+                        {
+                              "time": "13:30",
+                              "activity": "結束，前往台場"
+                        },
+                        {
+                              "time": "14:00",
+                              "activity": "DiverCity / Aqua City / 海邊散步"
+                        },
+                        {
+                              "time": "17:30",
+                              "activity": "返回五反田"
+                        },
+                        {
+                              "time": "19:00",
+                              "activity": "最後採買 + 行李整理"
+                        }
+                  ],
+                  "reminders": [
+                        "teamLab 訂單 JCS528913，10:30入場",
+                        "台場 DiverCity 有獨角獸鋼彈立像"
+                  ],
+                  "spots": [
+                        "OMO5 東京五反田",
+                        "teamLab Borderless",
+                        "台場 DiverCity",
+                        "Aqua City台場"
+                  ]
+            },
+            {
+                  "id": 10,
+                  "segment": "s3",
+                  "special": false,
+                  "dayNum": "DAY10",
+                  "date": "7/11",
+                  "weekday": "六",
+                  "theme": "✈️ 回台灣",
+                  "hotel": "無（退房）",
+                  "transport": "都營淺草線→羽田空港第三ターミナル（直達約25分）",
+                  "steps": [
+                        {
+                              "time": "06:30",
+                              "activity": "起床"
+                        },
+                        {
+                              "time": "07:45",
+                              "activity": "退房"
+                        },
+                        {
+                              "time": "08:00",
+                              "activity": "搭都營淺草線前往羽田"
+                        },
+                        {
+                              "time": "08:30",
+                              "activity": "抵達羽田T3，辦理登機"
+                        },
+                        {
+                              "time": "10:50",
+                              "activity": "BR189 起飛"
+                        },
+                        {
+                              "time": "13:30",
+                              "activity": "抵達台灣松山機場"
+                        }
+                  ],
+                  "reminders": [
+                        "⚠️ 長榮BR189從羽田HND T3出發，不是成田！務必確認"
+                  ],
+                  "spots": [
+                        "OMO5 東京五反田",
+                        "羽田空港第三ターミナル",
+                        "台灣松山機場"
+                  ]
+            }
       ]
-    };
-
+};
     // __DATA_END__
 
     // ======================================================
@@ -243,7 +534,7 @@
     //  TRANSPORT MODAL
     // ======================================================
     function TransportModal({ day, onClose, apiKey }) {
-      const [origin, setOrigin]           = useState(day.hotel === "無（退房）" ? day.spots[0] : day.hotel);
+      const [origin, setOrigin]           = useState(day.hotel === "ç¡ï¼éæ¿ï¼" ? day.spots[0] : day.hotel);
       const [destination, setDestination] = useState(day.spots[1] || day.spots[0] || "");
       const [mode, setMode]               = useState("transit");
       const [result, setResult]           = useState(null);
@@ -251,20 +542,20 @@
       const [error, setError]             = useState("");
 
       const MODES = [
-        { key: "transit",  label: "🚇 地鐵" },
-        { key: "bus",      label: "🚌 巴士" },
-        { key: "driving",  label: "🚕 計程車" },
-        { key: "walking",  label: "🚶 步行" }
+        { key: "transit",  label: "ð å°éµ" },
+        { key: "bus",      label: "ð å·´å£«" },
+        { key: "driving",  label: "ð è¨ç¨è»" },
+        { key: "walking",  label: "ð¶ æ­¥è¡" }
       ];
 
       const searchRoute = async () => {
-        if (!apiKey) { setError("請先在頁面頂部輸入 Google Maps API Key"); return; }
-        if (!origin || !destination) { setError("請選擇出發地和目的地"); return; }
-        if (origin === destination) { setError("出發地與目的地不能相同"); return; }
+        if (!apiKey) { setError("è«åå¨é é¢é é¨è¼¸å¥ Google Maps API Key"); return; }
+        if (!origin || !destination) { setError("è«é¸æåºç¼å°åç®çå°"); return; }
+        if (origin === destination) { setError("åºç¼å°èç®çå°ä¸è½ç¸å"); return; }
         setLoading(true); setError(""); setResult(null);
         try {
           const gMode = mode === "bus" ? "transit" : mode;
-          const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${encodeURIComponent(origin)},東京&destination=${encodeURIComponent(destination)},東京&mode=${gMode}&language=zh-TW&region=JP&key=${apiKey}`;
+          const url = `https://maps.googleapis.com/maps/api/directions/json?origin=${encodeURIComponent(origin)},æ±äº¬&destination=${encodeURIComponent(destination)},æ±äº¬&mode=${gMode}&language=zh-TW&region=JP&key=${apiKey}`;
           const res = await fetch(url);
           const data = await res.json();
           if (data.status === "OK" && data.routes.length > 0) {
@@ -277,15 +568,15 @@
               transfers: Math.max(0, transitSteps.length - 1),
               fare: data.routes[0].fare
                 ? `${data.routes[0].fare.currency} ${data.routes[0].fare.value}`
-                : "依實際搭乘計算"
+                : "ä¾å¯¦éæ­ä¹è¨ç®"
             });
           } else if (data.status === "REQUEST_DENIED") {
-            setError("API Key 無效或未啟用 Directions API，請確認後重試");
+            setError("API Key ç¡æææªåç¨ Directions APIï¼è«ç¢ºèªå¾éè©¦");
           } else {
-            setError(`查無路線（${data.status}），請確認地點名稱`);
+            setError(`æ¥ç¡è·¯ç·ï¼${data.status}ï¼ï¼è«ç¢ºèªå°é»åç¨±`);
           }
         } catch(e) {
-          setError("查詢失敗：" + e.message);
+          setError("æ¥è©¢å¤±æï¼" + e.message);
         }
         setLoading(false);
       };
@@ -301,29 +592,29 @@
           <div className="bg-white rounded-2xl w-full max-w-md shadow-2xl overflow-hidden" onClick={e => e.stopPropagation()}>
             <div className="bg-blue-900 text-white px-5 py-4 flex justify-between items-center">
               <div>
-                <h3 className="font-bold text-lg">🗺 交通查詢</h3>
-                <p className="text-blue-200 text-xs mt-0.5">{day.dayNum} · {day.date}（{day.weekday}）</p>
+                <h3 className="font-bold text-lg">ðº äº¤éæ¥è©¢</h3>
+                <p className="text-blue-200 text-xs mt-0.5">{day.dayNum} Â· {day.date}ï¼{day.weekday}ï¼</p>
               </div>
-              <button onClick={onClose} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-800 text-white text-xl font-bold transition-colors">✕</button>
+              <button onClick={onClose} className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-blue-800 text-white text-xl font-bold transition-colors">â</button>
             </div>
             <div className="p-5 space-y-4">
               <div>
-                <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5 block">出發地</label>
+                <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5 block">åºç¼å°</label>
                 <select className="w-full border-2 border-gray-200 rounded-xl px-3 py-2 text-sm focus:border-blue-500 focus:outline-none transition-colors bg-white"
                   value={origin} onChange={e => setOrigin(e.target.value)}>
-                  <option value={day.hotel}>{day.hotel}（今日住宿）</option>
+                  <option value={day.hotel}>{day.hotel}ï¼ä»æ¥ä½å®¿ï¼</option>
                   {day.spots.filter(s => s !== day.hotel).map((s, i) => <option key={i} value={s}>{s}</option>)}
                 </select>
               </div>
               <div>
-                <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5 block">目的地</label>
+                <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5 block">ç®çå°</label>
                 <select className="w-full border-2 border-gray-200 rounded-xl px-3 py-2 text-sm focus:border-blue-500 focus:outline-none transition-colors bg-white"
                   value={destination} onChange={e => setDestination(e.target.value)}>
                   {day.spots.map((s, i) => <option key={i} value={s}>{s}</option>)}
                 </select>
               </div>
               <div>
-                <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5 block">交通方式</label>
+                <label className="text-xs font-semibold text-gray-500 uppercase tracking-wide mb-1.5 block">äº¤éæ¹å¼</label>
                 <div className="grid grid-cols-4 gap-2">
                   {MODES.map(m => (
                     <button key={m.key} onClick={() => setMode(m.key)}
@@ -336,21 +627,21 @@
               <button onClick={searchRoute} disabled={loading}
                 className="w-full bg-blue-900 text-white py-3 rounded-xl font-bold hover:bg-blue-800 transition-colors disabled:opacity-60 flex items-center justify-center gap-2">
                 {loading ? (
-                  <><span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span> 查詢中...</>
-                ) : "🔍 查詢路線"}
+                  <><span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span> æ¥è©¢ä¸­...</>
+                ) : "ð æ¥è©¢è·¯ç·"}
               </button>
               {error && (
                 <div className="bg-red-50 border border-red-200 text-red-700 text-sm p-3 rounded-xl">{error}</div>
               )}
               {result && (
                 <div className="bg-green-50 border border-green-200 rounded-xl p-4 fade-in">
-                  <p className="text-green-800 text-xs font-semibold mb-3">✅ 查詢結果</p>
+                  <p className="text-green-800 text-xs font-semibold mb-3">â æ¥è©¢çµæ</p>
                   <div className="grid grid-cols-2 gap-2">
                     {[
-                      { label: "⏱ 預估時間", value: result.duration, color: "text-blue-700" },
-                      { label: "📏 距離",     value: result.distance, color: "text-teal-700" },
-                      { label: "🔄 轉乘次數", value: `${result.transfers} 次`, color: "text-violet-700" },
-                      { label: "💴 費用",     value: result.fare,     color: "text-orange-700" }
+                      { label: "â± é ä¼°æé", value: result.duration, color: "text-blue-700" },
+                      { label: "ð è·é¢",     value: result.distance, color: "text-teal-700" },
+                      { label: "ð è½ä¹æ¬¡æ¸", value: `${result.transfers} æ¬¡`, color: "text-violet-700" },
+                      { label: "ð´ è²»ç¨",     value: result.fare,     color: "text-orange-700" }
                     ].map(item => (
                       <div key={item.label} className="bg-white rounded-xl p-3 text-center shadow-sm">
                         <div className={`text-base font-bold ${item.color}`}>{item.value}</div>
@@ -362,7 +653,7 @@
               )}
               <button onClick={openMaps}
                 className="w-full border-2 border-blue-500 text-blue-700 py-2.5 rounded-xl font-bold hover:bg-blue-50 transition-colors flex items-center justify-center gap-2">
-                📱 在 Google Maps 開啟
+                ð± å¨ Google Maps éå
               </button>
             </div>
           </div>
@@ -386,11 +677,11 @@
         const next = day.steps.map((s, idx) => idx === i ? { ...s, [key]: val } : s);
         onUpdate(day.id, "steps", next);
       };
-      const addStep = () => onUpdate(day.id, "steps", [...day.steps, { time: "00:00", activity: "新活動" }]);
+      const addStep = () => onUpdate(day.id, "steps", [...day.steps, { time: "00:00", activity: "æ°æ´»å" }]);
       const delStep = (i) => onUpdate(day.id, "steps", day.steps.filter((_, idx) => idx !== i));
 
       const updateReminder = (i, val) => onUpdate(day.id, "reminders", day.reminders.map((r, idx) => idx === i ? val : r));
-      const addReminder    = () => onUpdate(day.id, "reminders", [...day.reminders, "新提醒事項"]);
+      const addReminder    = () => onUpdate(day.id, "reminders", [...day.reminders, "æ°æéäºé "]);
       const delReminder    = (i) => onUpdate(day.id, "reminders", day.reminders.filter((_, idx) => idx !== i));
 
       // ---- Card Body (shared desktop+mobile) ----
@@ -398,7 +689,7 @@
         <div className="flex-1 overflow-y-auto card-scroll px-4 pb-3 space-y-3">
           {/* Hotel */}
           <div className="bg-blue-50 rounded-xl p-3">
-            <div className="text-xs font-bold text-blue-700 mb-1">🏨 住宿</div>
+            <div className="text-xs font-bold text-blue-700 mb-1">ð¨ ä½å®¿</div>
             {editMode
               ? <input type="text" className="w-full border-b border-blue-300 bg-white rounded px-1 text-sm focus:outline-none focus:border-blue-500"
                   value={day.hotel} onChange={e => editField("hotel", e.target.value)} />
@@ -407,7 +698,7 @@
 
           {/* Transport */}
           <div className="bg-violet-50 rounded-xl p-3">
-            <div className="text-xs font-bold text-violet-700 mb-1">🚇 交通</div>
+            <div className="text-xs font-bold text-violet-700 mb-1">ð äº¤é</div>
             {editMode
               ? <input type="text" className="w-full border-b border-violet-300 bg-white rounded px-1 text-sm focus:outline-none focus:border-violet-500"
                   value={day.transport} onChange={e => editField("transport", e.target.value)} />
@@ -416,7 +707,7 @@
 
           {/* Timeline */}
           <div className="bg-gray-50 rounded-xl p-3">
-            <div className="text-xs font-bold text-gray-600 mb-2">📍 行程步驟</div>
+            <div className="text-xs font-bold text-gray-600 mb-2">ð è¡ç¨æ­¥é©</div>
             <div className="space-y-2">
               {day.steps.map((step, i) => (
                 <div key={i} className={`flex items-start gap-2 relative pl-4 ${i < day.steps.length - 1 ? "timeline-dot" : "timeline-last"}`}>
@@ -427,7 +718,7 @@
                         value={step.time} onChange={e => updateStep(i, "time", e.target.value)} />
                       <input type="text" className="flex-1 border-b border-gray-300 bg-white rounded px-1 text-sm text-gray-700 focus:outline-none"
                         value={step.activity} onChange={e => updateStep(i, "activity", e.target.value)} />
-                      <button onClick={() => delStep(i)} className="text-red-400 hover:text-red-600 text-sm flex-shrink-0 font-bold">✕</button>
+                      <button onClick={() => delStep(i)} className="text-red-400 hover:text-red-600 text-sm flex-shrink-0 font-bold">â</button>
                     </>
                   ) : (
                     <>
@@ -438,7 +729,7 @@
                 </div>
               ))}
               {editMode && (
-                <button onClick={addStep} className="ml-4 mt-1 text-blue-600 text-xs hover:text-blue-800 font-semibold">＋ 新增步驟</button>
+                <button onClick={addStep} className="ml-4 mt-1 text-blue-600 text-xs hover:text-blue-800 font-semibold">ï¼ æ°å¢æ­¥é©</button>
               )}
             </div>
           </div>
@@ -446,16 +737,16 @@
           {/* Reminders */}
           {(day.reminders.length > 0 || editMode) && (
             <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-3">
-              <div className="text-xs font-bold text-yellow-700 mb-1.5">💡 提醒</div>
+              <div className="text-xs font-bold text-yellow-700 mb-1.5">ð¡ æé</div>
               <div className="space-y-1.5">
                 {day.reminders.map((r, i) => (
                   <div key={i} className="flex items-start gap-1.5">
-                    <span className="text-yellow-500 text-xs mt-0.5 flex-shrink-0">•</span>
+                    <span className="text-yellow-500 text-xs mt-0.5 flex-shrink-0">â¢</span>
                     {editMode ? (
                       <>
                         <input type="text" className="flex-1 border-b border-yellow-300 bg-white rounded px-1 text-xs focus:outline-none"
                           value={r} onChange={e => updateReminder(i, e.target.value)} />
-                        <button onClick={() => delReminder(i)} className="text-red-400 hover:text-red-600 text-xs font-bold">✕</button>
+                        <button onClick={() => delReminder(i)} className="text-red-400 hover:text-red-600 text-xs font-bold">â</button>
                       </>
                     ) : (
                       <span className="text-xs text-yellow-800 leading-relaxed">{r}</span>
@@ -463,7 +754,7 @@
                   </div>
                 ))}
                 {editMode && (
-                  <button onClick={addReminder} className="text-yellow-700 text-xs hover:text-yellow-900 font-semibold ml-3">＋ 新增提醒</button>
+                  <button onClick={addReminder} className="text-yellow-700 text-xs hover:text-yellow-900 font-semibold ml-3">ï¼ æ°å¢æé</button>
                 )}
               </div>
             </div>
@@ -476,8 +767,8 @@
         <div className="p-4 pb-2">
           <div className="flex items-center gap-2 mb-2 flex-wrap">
             <span className={`${badgeColor} text-white text-xs font-bold px-3 py-1 rounded-full`}>{day.dayNum}</span>
-            <span className="text-gray-500 text-sm">{day.date}（{day.weekday}）</span>
-            {day.special && <span className="bg-emerald-100 text-emerald-700 text-xs px-2 py-0.5 rounded-full font-semibold">✨ 特別日</span>}
+            <span className="text-gray-500 text-sm">{day.date}ï¼{day.weekday}ï¼</span>
+            {day.special && <span className="bg-emerald-100 text-emerald-700 text-xs px-2 py-0.5 rounded-full font-semibold">â¨ ç¹å¥æ¥</span>}
           </div>
           {editMode ? (
             <input type="text" className="w-full font-bold text-sm text-gray-800 border-b-2 border-blue-400 bg-blue-50 rounded px-1 focus:outline-none"
@@ -497,7 +788,7 @@
             <div className="px-4 pb-4 pt-2 border-t border-gray-100 flex-shrink-0">
               <button onClick={() => setShowModal(true)}
                 className="w-full bg-blue-900 text-white py-2 rounded-xl text-xs font-bold hover:bg-blue-800 transition-colors">
-                🗺 查詢交通
+                ðº æ¥è©¢äº¤é
               </button>
             </div>
           </div>
@@ -508,12 +799,12 @@
               <div className="px-4 py-3 flex items-center justify-between gap-2">
                 <div className="flex items-center gap-2 flex-wrap">
                   <span className={`${badgeColor} text-white text-xs font-bold px-2.5 py-0.5 rounded-full`}>{day.dayNum}</span>
-                  <span className="text-gray-500 text-xs">{day.date}（{day.weekday}）</span>
-                  {day.special && <span className="bg-emerald-100 text-emerald-700 text-xs px-2 py-0.5 rounded-full">✨</span>}
+                  <span className="text-gray-500 text-xs">{day.date}ï¼{day.weekday}ï¼</span>
+                  {day.special && <span className="bg-emerald-100 text-emerald-700 text-xs px-2 py-0.5 rounded-full">â¨</span>}
                 </div>
                 <div className="flex items-center gap-2 min-w-0">
                   <span className="text-sm font-semibold text-gray-800 truncate">{day.theme}</span>
-                  <span className="text-gray-400 text-sm flex-shrink-0">{expanded ? "▲" : "▼"}</span>
+                  <span className="text-gray-400 text-sm flex-shrink-0">{expanded ? "â²" : "â¼"}</span>
                 </div>
               </div>
             </button>
@@ -522,15 +813,15 @@
                 <div className="px-4 pb-4 space-y-3">
                   {/* Inline hotel/transport/steps/reminders for mobile */}
                   <div className="bg-blue-50 rounded-xl p-3">
-                    <div className="text-xs font-bold text-blue-700 mb-1">🏨 住宿</div>
+                    <div className="text-xs font-bold text-blue-700 mb-1">ð¨ ä½å®¿</div>
                     <p className="text-sm text-gray-700">{day.hotel}</p>
                   </div>
                   <div className="bg-violet-50 rounded-xl p-3">
-                    <div className="text-xs font-bold text-violet-700 mb-1">🚇 交通</div>
+                    <div className="text-xs font-bold text-violet-700 mb-1">ð äº¤é</div>
                     <p className="text-sm text-gray-700">{day.transport}</p>
                   </div>
                   <div className="bg-gray-50 rounded-xl p-3">
-                    <div className="text-xs font-bold text-gray-600 mb-2">📍 行程步驟</div>
+                    <div className="text-xs font-bold text-gray-600 mb-2">ð è¡ç¨æ­¥é©</div>
                     <div className="space-y-2">
                       {day.steps.map((step, i) => (
                         <div key={i} className="flex items-start gap-2 pl-3">
@@ -543,10 +834,10 @@
                   </div>
                   {day.reminders.length > 0 && (
                     <div className="bg-yellow-50 border border-yellow-200 rounded-xl p-3">
-                      <div className="text-xs font-bold text-yellow-700 mb-1.5">💡 提醒</div>
+                      <div className="text-xs font-bold text-yellow-700 mb-1.5">ð¡ æé</div>
                       {day.reminders.map((r, i) => (
                         <div key={i} className="flex items-start gap-1.5 mb-1">
-                          <span className="text-yellow-500 text-xs mt-0.5">•</span>
+                          <span className="text-yellow-500 text-xs mt-0.5">â¢</span>
                           <span className="text-xs text-yellow-800">{r}</span>
                         </div>
                       ))}
@@ -554,7 +845,7 @@
                   )}
                   <button onClick={() => setShowModal(true)}
                     className="w-full bg-blue-900 text-white py-2.5 rounded-xl text-sm font-bold hover:bg-blue-800 transition-colors">
-                    🗺 查詢交通
+                    ðº æ¥è©¢äº¤é
                   </button>
                 </div>
               </div>
@@ -573,7 +864,7 @@
       const style = SEG_STYLES[segment.id] || SEG_STYLES.s1;
       return (
         <div className={`${style.banner} text-white rounded-2xl px-5 py-4 flex flex-wrap items-center gap-3 my-6 shadow-lg`}>
-          <span className="font-bold text-base md:text-lg">🏨 {segment.name}</span>
+          <span className="font-bold text-base md:text-lg">ð¨ {segment.name}</span>
           <span className={`${style.badge} text-xs font-bold px-3 py-1 rounded-full`}>{segment.dates}</span>
           <span className="text-sm opacity-80">{segment.hotel}</span>
         </div>
@@ -616,7 +907,7 @@
       const saveData = () => {
         localStorage.setItem("tokyo-trip-2026", JSON.stringify(data));
         if (apiKey) localStorage.setItem("gmaps-key", apiKey);
-        showToast("✅ 已儲存至 localStorage");
+        showToast("â å·²å²å­è³ localStorage");
       };
 
       const exportJSON = () => {
@@ -627,7 +918,7 @@
         });
         a.click();
         URL.revokeObjectURL(a.href);
-        showToast("📤 已匯出 JSON 檔案");
+        showToast("ð¤ å·²å¯åº JSON æªæ¡");
       };
 
       const importJSON = (e) => {
@@ -637,36 +928,36 @@
         reader.onload = ev => {
           try {
             const imported = JSON.parse(ev.target.result);
-            if (!imported.days || !imported.segments) throw new Error("格式錯誤");
+            if (!imported.days || !imported.segments) throw new Error("æ ¼å¼é¯èª¤");
             setData(imported);
-            showToast("📥 匯入成功！");
-          } catch { showToast("❌ 檔案格式錯誤，請確認 JSON 結構"); }
+            showToast("ð¥ å¯å¥æåï¼");
+          } catch { showToast("â æªæ¡æ ¼å¼é¯èª¤ï¼è«ç¢ºèª JSON çµæ§"); }
         };
         reader.readAsText(file);
         e.target.value = "";
       };
 
       const resetData = () => {
-        if (!window.confirm("確定要重置所有資料？此操作無法復原。")) return;
+        if (!window.confirm("ç¢ºå®è¦éç½®ææè³æï¼æ­¤æä½ç¡æ³å¾©åã")) return;
         setData(DEFAULT_DATA);
         localStorage.removeItem("tokyo-trip-2026");
-        showToast("🔄 已重置為預設資料");
+        showToast("ð å·²éç½®çºé è¨­è³æ");
       };
 
       const getDaysForSegment = (segId) => data.days.filter(d => d.segment === segId);
 
       const confirmApiKey = () => {
-        if (apiKey) { localStorage.setItem("gmaps-key", apiKey); showToast("🔑 API Key 已儲存"); }
+        if (apiKey) { localStorage.setItem("gmaps-key", apiKey); showToast("ð API Key å·²å²å­"); }
         setShowApiBar(false);
       };
 
       const confirmGhToken = () => {
-        if (ghToken) { localStorage.setItem("gh-token", ghToken); showToast("🔐 GitHub Token 已儲存"); }
+        if (ghToken) { localStorage.setItem("gh-token", ghToken); showToast("ð GitHub Token å·²å²å­"); }
         setShowGhBar(false);
       };
 
       const publishToGitHub = async () => {
-        if (!ghToken) { setShowGhBar(true); showToast("⚠️ 請先設定 GitHub Token"); return; }
+        if (!ghToken) { setShowGhBar(true); showToast("â ï¸ è«åè¨­å® GitHub Token"); return; }
         setPublishing(true);
         try {
           const apiBase = `https://api.github.com/repos/${GH_OWNER}/${GH_REPO}/contents/${GH_PATH}`;
@@ -675,25 +966,25 @@
             "Accept": "application/vnd.github+json",
             "Content-Type": "application/json"
           };
-          // 1. 取得目前檔案的 SHA 和內容
+          // 1. åå¾ç®åæªæ¡ç SHA åå§å®¹
           const getRes = await fetch(`${apiBase}?ref=${GH_BRANCH}`, { headers });
-          if (!getRes.ok) throw new Error(`無法取得檔案 (${getRes.status})，請確認 Token 權限`);
+          if (!getRes.ok) throw new Error(`ç¡æ³åå¾æªæ¡ (${getRes.status})ï¼è«ç¢ºèª Token æ¬é`);
           const fileInfo = await getRes.json();
           const currentContent = atob(fileInfo.content.replace(/\n/g, ""));
 
-          // 2. 替換 DEFAULT_DATA 區塊
+          // 2. æ¿æ DEFAULT_DATA åå¡
           const newDataStr = `const DEFAULT_DATA = ${JSON.stringify(data, null, 6)};`;
           const updated = currentContent.replace(
             /\/\/ __DATA_START__[\s\S]*?\/\/ __DATA_END__/,
             `// __DATA_START__\n    ${newDataStr}\n    // __DATA_END__`
           );
 
-          // 3. 推上 GitHub
+          // 3. æ¨ä¸ GitHub
           const putRes = await fetch(apiBase, {
             method: "PUT",
             headers,
             body: JSON.stringify({
-              message: `✏️ 更新行程資料 ${new Date().toLocaleString("zh-TW")}`,
+              message: `âï¸ æ´æ°è¡ç¨è³æ ${new Date().toLocaleString("zh-TW")}`,
               content: btoa(unescape(encodeURIComponent(updated))),
               sha: fileInfo.sha,
               branch: GH_BRANCH
@@ -701,11 +992,11 @@
           });
           if (!putRes.ok) {
             const err = await putRes.json();
-            throw new Error(err.message || `推送失敗 (${putRes.status})`);
+            throw new Error(err.message || `æ¨éå¤±æ (${putRes.status})`);
           }
-          showToast("🚀 已發布到 GitHub！家人重新整理即可看到新版");
+          showToast("ð å·²ç¼å¸å° GitHubï¼å®¶äººéæ°æ´çå³å¯çå°æ°ç");
         } catch(e) {
-          showToast("❌ " + e.message);
+          showToast("â " + e.message);
         }
         setPublishing(false);
       };
@@ -719,32 +1010,32 @@
                 <div>
                   <h1 className="text-lg md:text-2xl font-bold tracking-tight">{data.tripInfo.title}</h1>
                   <p className="text-blue-300 text-xs md:text-sm mt-0.5">
-                    📅 {data.tripInfo.dates} &nbsp;·&nbsp;
-                    📆 {data.tripInfo.totalDays} 天 &nbsp;·&nbsp;
-                    👨‍👩‍👧‍👦 {data.tripInfo.passengers}
+                    ð {data.tripInfo.dates} &nbsp;Â·&nbsp;
+                    ð {data.tripInfo.totalDays} å¤© &nbsp;Â·&nbsp;
+                    ð¨âð©âð§âð¦ {data.tripInfo.passengers}
                   </p>
                 </div>
                 <div className="flex flex-wrap items-center gap-2">
                   <button onClick={() => setShowApiBar(!showApiBar)}
                     className={`text-xs px-3 py-1.5 rounded-lg font-semibold transition-colors ${apiKey ? "bg-emerald-600 hover:bg-emerald-700" : "bg-yellow-400 text-gray-900 hover:bg-yellow-300"}`}>
-                    🔑 {apiKey ? "API 已設定" : "設定 API Key"}
+                    ð {apiKey ? "API å·²è¨­å®" : "è¨­å® API Key"}
                   </button>
                   <button onClick={() => setEditMode(!editMode)}
                     className={`text-xs px-3 py-1.5 rounded-lg font-semibold transition-colors ${editMode ? "bg-orange-500 hover:bg-orange-600" : "bg-white text-blue-900 hover:bg-blue-50"}`}>
-                    {editMode ? "✏️ 退出編輯" : "✏️ 編輯模式"}
+                    {editMode ? "âï¸ éåºç·¨è¼¯" : "âï¸ ç·¨è¼¯æ¨¡å¼"}
                   </button>
                   {editMode && <>
-                    <button onClick={saveData}  className="text-xs px-3 py-1.5 bg-emerald-500 hover:bg-emerald-600 rounded-lg font-semibold transition-colors">💾 儲存</button>
-                    <button onClick={exportJSON} className="text-xs px-3 py-1.5 bg-violet-500 hover:bg-violet-600 rounded-lg font-semibold transition-colors">📤 匯出</button>
-                    <button onClick={() => importRef.current?.click()} className="text-xs px-3 py-1.5 bg-indigo-500 hover:bg-indigo-600 rounded-lg font-semibold transition-colors">📥 匯入</button>
+                    <button onClick={saveData}  className="text-xs px-3 py-1.5 bg-emerald-500 hover:bg-emerald-600 rounded-lg font-semibold transition-colors">ð¾ å²å­</button>
+                    <button onClick={exportJSON} className="text-xs px-3 py-1.5 bg-violet-500 hover:bg-violet-600 rounded-lg font-semibold transition-colors">ð¤ å¯åº</button>
+                    <button onClick={() => importRef.current?.click()} className="text-xs px-3 py-1.5 bg-indigo-500 hover:bg-indigo-600 rounded-lg font-semibold transition-colors">ð¥ å¯å¥</button>
                     <input ref={importRef} type="file" accept=".json" className="hidden" onChange={importJSON} />
                     <button onClick={() => setShowGhBar(!showGhBar)}
                       className={`text-xs px-3 py-1.5 rounded-lg font-semibold transition-colors ${ghToken ? "bg-gray-600 hover:bg-gray-700" : "bg-pink-500 hover:bg-pink-600"}`}>
-                      🔐 {ghToken ? "Token 已設定" : "設定 Token"}
+                      ð {ghToken ? "Token å·²è¨­å®" : "è¨­å® Token"}
                     </button>
                     <button onClick={publishToGitHub} disabled={publishing}
                       className="text-xs px-3 py-1.5 bg-rose-500 hover:bg-rose-600 disabled:opacity-60 rounded-lg font-semibold transition-colors flex items-center gap-1">
-                      {publishing ? <><span className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span> 發布中...</> : "🚀 發布到 GitHub"}
+                      {publishing ? <><span className="w-3 h-3 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span> ç¼å¸ä¸­...</> : "ð ç¼å¸å° GitHub"}
                     </button>
                   </>}
                 </div>
@@ -752,27 +1043,27 @@
               {/* API Key bar */}
               {showApiBar && (
                 <div className="mt-3 flex gap-2 fade-in">
-                  <input type="password" placeholder="貼上 Google Maps Directions API Key..."
+                  <input type="password" placeholder="è²¼ä¸ Google Maps Directions API Key..."
                     value={apiKey} onChange={e => setApiKey(e.target.value)}
                     onKeyDown={e => e.key === "Enter" && confirmApiKey()}
                     className="flex-1 px-3 py-2 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400" />
                   <button onClick={confirmApiKey}
-                    className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-xl text-sm font-bold hover:bg-yellow-300 transition-colors">確認</button>
+                    className="bg-yellow-400 text-gray-900 px-4 py-2 rounded-xl text-sm font-bold hover:bg-yellow-300 transition-colors">ç¢ºèª</button>
                 </div>
               )}
               {/* GitHub Token bar */}
               {showGhBar && (
                 <div className="mt-3 space-y-2 fade-in">
                   <div className="flex gap-2">
-                    <input type="password" placeholder="貼上 GitHub Personal Access Token（需要 Contents 寫入權限）..."
+                    <input type="password" placeholder="è²¼ä¸ GitHub Personal Access Tokenï¼éè¦ Contents å¯«å¥æ¬éï¼..."
                       value={ghToken} onChange={e => setGhToken(e.target.value)}
                       onKeyDown={e => e.key === "Enter" && confirmGhToken()}
                       className="flex-1 px-3 py-2 rounded-xl text-gray-900 text-sm focus:outline-none focus:ring-2 focus:ring-pink-400" />
                     <button onClick={confirmGhToken}
-                      className="bg-pink-400 text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-pink-300 transition-colors">確認</button>
+                      className="bg-pink-400 text-white px-4 py-2 rounded-xl text-sm font-bold hover:bg-pink-300 transition-colors">ç¢ºèª</button>
                   </div>
                   <p className="text-blue-200 text-xs">
-                    💡 到 <a href="https://github.com/settings/tokens/new?scopes=repo&description=tokyo-trip" target="_blank" className="underline text-yellow-300">github.com/settings/tokens</a> 產生 Token，勾選 <strong>repo</strong> 權限
+                    ð¡ å° <a href="https://github.com/settings/tokens/new?scopes=repo&description=tokyo-trip" target="_blank" className="underline text-yellow-300">github.com/settings/tokens</a> ç¢ç Tokenï¼å¾é¸ <strong>repo</strong> æ¬é
                   </p>
                 </div>
               )}
@@ -810,10 +1101,10 @@
 
             {/* Footer */}
             <footer className="mt-12 text-center text-gray-400 text-sm pb-8">
-              <p>🇯🇵 2026 東京親子旅遊 &nbsp;·&nbsp; 祝旅途平安愉快！✈️</p>
+              <p>ð¯ðµ 2026 æ±äº¬è¦ªå­æé &nbsp;Â·&nbsp; ç¥æéå¹³å®æå¿«ï¼âï¸</p>
               {editMode && (
                 <button onClick={resetData} className="mt-2 text-red-400 hover:text-red-600 text-xs underline">
-                  🔄 重置為預設資料
+                  ð éç½®çºé è¨­è³æ
                 </button>
               )}
             </footer>
